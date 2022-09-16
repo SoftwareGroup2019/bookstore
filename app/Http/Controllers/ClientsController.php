@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use Illuminate\Http\Request;
+
+/**
+ * @group Users API
+ * 
+ * APIs for managing users resource
+ */
 
 class ClientsController extends Controller
 {
@@ -15,8 +22,9 @@ class ClientsController extends Controller
     public function index()
     {
 
+        $all = Client::all();
 
-
+        return ClientResource::collection($all);
     }
 
     /**
